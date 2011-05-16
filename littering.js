@@ -9,19 +9,27 @@
         $(t).empty().append(inject);
       }
   };
+  var splitters = {
+    words: function(context){
+      context.each(function(item){injector(item,' ','word',' ')});
+    },
+    chars: function(context){
+      context.each(function(item){injector(item,'','char','')});
+    },
+    lines: function(context){
+      var r = "eefec303079ad17405c889e092e105b0";
+      context.each(function(item){
+        $(item).children("br").after(r).remove();
+        injector(item,r,'line','');
+      });
+    }
+  };
+
   $.ender({
-    littering: function(type) {
-      if (type === 'words') {
-        this.each(function(item){injector(item,' ','word',' ')});
-      } else if (type === 'lines') {
-        var r = "eefec303079ad17405c889e092e105b0";
-        this.each(function(item){
-          $(item).children("br").after(r).remove();
-          injector(item,r,'line','');
-        });
-      } else {
-        this.each(function(item){injector(item,'','char','')});
-      }
+    littering: function(splitter, formatter) {
+      if (!splitter) splitter = 'chars';
+      splitters[splitter](this);
+
       return this;
     }
   },true);
