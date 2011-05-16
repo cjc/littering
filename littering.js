@@ -49,9 +49,4 @@
       return this;
     }
   },true);
-
-  $.ender({
-    splitters: splitters,
-    formatters: formatters
-  });
 }(ender);
