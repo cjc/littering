@@ -12,6 +12,7 @@
   $.ender({
     littering: function() {
       this.each(function(item){injector(item,'','char','')});
+      return this;
     }
   },true);
 }(ender);
