@@ -34,6 +34,7 @@
 		.char5 { color: green; }
 		.char6 { color: indigo; }
 		.char7 { color: violet; }
+    .upper { display: inline-block; -webkit-transform: rotate(25deg)}
 	</style>
   <script src="ender.min.js"></script>
   <script src="../littering.js"></script>
@@ -119,6 +120,55 @@
 				</div>
 			</section>
 
+			<section id='litteringcustom1'>
+  <script>
+  	$.domReady(function() {
+			$("#demo6 h1").littering('chars',function(){return 'a'});
+    });
+  </script>
+				<h2>Littering specific examples</h2>
+        <p>Where littering diverges from Lettering.js is in accepting custom functions to define new splitting or formatting behaviour. Each call should be of the form</p>
+<code><pre>$("some selector").littering( splitter , formatter );
+	</pre></code>
+<p>where splitter is either the name of a standard splitter ('chars', 'words' or 'lines') or a function (check the code for the form a custom splitter should take, you probably don't want one), and where formatter is a function of the form</p>
+<code><pre>
+function(item, i) {
+  return '&lt;span class="someclass' +(i+1)+ '"&gt;'+item+'&lt;/span&gt;';
+}
+</pre></code>
+<p>which simply accepts the item (char, word or line depending on splitter), and the index of the item, and returns a new html string to represent that item.</p>
+<p>To split by character and replace every character in the sequence with 'a' you would use.</p>
+<code><pre>
+			$("#demo6 h1").littering('chars',function(){return 'a'});
+	</pre></code>
+			<h4>The Result</h4>
+				<div id="demo6" class="demo">
+					<h1>WOOOoo!</h1>
+				</div>
+			</section>
+
+			<section id='litteringcustom2'>
+  <script>
+  	$.domReady(function() {
+			$("#demo7 h1").littering('chars',function(item,i){
+        var str = item.charCodeAt(0) > 64 && item.charCodeAt(0) < 91 ? " upper" : "" ;
+        return '<span class="char'+(i+1)+str+'">'+item+'</span>';
+      });
+    });
+  </script>
+				<h2>More interesting examples</h2>
+  <p>Tilt uppercase characters</p>
+<code><pre>
+    $("#demo7 h1").littering('chars',function(item,i){
+      var str = item.charCodeAt(0) > 64 && item.charCodeAt(0) < 91 ? " upper" : "" ;
+      return '&lt;span class="char'+(i+1)+str+'"&gt;'+item+'&lt;/span&gt;';
+    });
+	</pre></code>
+			<h4>The Result</h4>
+				<div id="demo7" class="demo">
+					<h1>WOOOoo!</h1>
+				</div>
+			</section>
     </article>
     
     <footer>

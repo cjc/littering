@@ -16,7 +16,15 @@ $("#demo5 h1").littering().children("span").css({'display':'inline-block', '-web
 
 ##Other uses
 
-Not in 0.0.1
+In addition to simply numbering elements, littering accepts custom formatter functions to allow arbitrary substitution of elements and complex class setting.  
+
+```javascript
+$("#demo6 h1").littering('chars',function(){return 'a'});`
+$("#demo7 h1").littering('chars',function(item,i){
+  var str = item.charCodeAt(0) > 64 && item.charCodeAt(0) < 91 ? " upper" : "" ;
+  return '<span class="char'+(i+1)+str+'">'+item+'</span>';
+});
+```
 
 ##History
 
