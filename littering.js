@@ -13,15 +13,15 @@
     numbered : function(klass, after) {
       return function(item, i) {
         return '<span class="'+klass+(i+1)+'">'+item+'</span>'+after;
-      }
+      };
     }
   };
   var splitters = {
     words: function(context, formatter){
-      context.each(function(item){injector(formatter, item,' ')});
+      context.each(function(item){injector(formatter, item,' ');});
     },
     chars: function(context, formatter){
-      context.each(function(item){injector(formatter, item,'')});
+      context.each(function(item){injector(formatter, item,'');});
     },
     lines: function(context, formatter){
       var r = "eefec303079ad17405c889e092e105b0";
@@ -37,11 +37,11 @@
 
   $.ender({
     littering: function(splitter, formatter) {
-      if (!splitter) splitter = 'chars';
-      if (typeof(splitter) != 'function') {
+      if (!splitter) {splitter = 'chars';};
+      if (typeof(splitter) !== 'function') {
         splitter = splitters[splitter];
       }
-      if (typeof(formatter) == 'function') {
+      if (typeof(formatter) === 'function') {
         splitter(this, formatter);
       } else {
         splitter(this, splitter.formatter);
