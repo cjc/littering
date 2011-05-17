@@ -2,7 +2,19 @@
 
 Littering is an [ender](https://github.com/ender-js/ender) based variation of [Lettering.js](https://github.com/davatron5000/Lettering.js). Where lettering.js injects positional classes for styling chars/words/lins, Littering accepts functions to determine which classes to apply to which elements.
 
-##Lettering.js compliance
+##See it
+
+Check the examples at [http://cjc.github.com/littering]()
+
+##Use it
+
+Get littering by including it in your ender build
+
+```
+ender add littering
+```
+
+###Lettering.js compliant behaviour
 
 Littering mimics the same api as Lettering.js for the base functionality of decorating chars/words/lines with their position.
 
@@ -14,7 +26,7 @@ $("#demo4 h1").littering('words').children("span").littering();
 $("#demo5 h1").littering().children("span").css({'display':'inline-block', '-webkit-transform':'rotate(-25deg)'});
 ```
 
-##Other uses
+###Other functionality
 
 In addition to simply numbering elements, littering accepts custom formatter functions to allow arbitrary substitution of elements and complex class setting.  
 
