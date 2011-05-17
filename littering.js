@@ -37,7 +37,7 @@
 
   $.ender({
     littering: function(splitter, formatter) {
-      if (!splitter) {splitter = 'chars';};
+      if (!splitter) {splitter = 'chars';}
       if (typeof(splitter) !== 'function') {
         splitter = splitters[splitter];
       }
