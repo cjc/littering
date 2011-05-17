@@ -28,6 +28,7 @@ $("#demo7 h1").littering('chars',function(item,i){
 
 ##History
 
+0.0.2 - Enable and add examples for passed formatter functions.
 0.0.1 - Replicate Lettering.js functionality running on ender.
 
 ##Credits
