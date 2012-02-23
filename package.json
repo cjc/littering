@@ -1,7 +1,7 @@
 {
   "name": "littering",
   "description": "ender based library for littering text with span markup, based on Lettering.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/cjc/littering",
   "authors": [
     "Cameron Coley"

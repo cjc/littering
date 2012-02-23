@@ -4,7 +4,7 @@
       if (a.length) {
         var inject = '';
         $(a).each(function(item,i) {
-          inject += formatter(item, i);
+          inject += formatter(item, i, a);
         });
         $(t).empty().html(inject);
       }
@@ -34,7 +34,7 @@
   splitters.words.formatter = formatters.numbered('word',' ');
   splitters.chars.formatter = formatters.numbered('char','');
   splitters.lines.formatter = formatters.numbered('line','');
-
+console.log("blah")
   $.ender({
     littering: function(splitter, formatter) {
       if (!splitter) {splitter = 'chars';}
