@@ -34,7 +34,7 @@
   splitters.words.formatter = formatters.numbered('word',' ');
   splitters.chars.formatter = formatters.numbered('char','');
   splitters.lines.formatter = formatters.numbered('line','');
-console.log("blah")
+
   $.ender({
     littering: function(splitter, formatter) {
       if (!splitter) {splitter = 'chars';}
