@@ -35,6 +35,7 @@
 		.char6 { color: indigo; }
 		.char7 { color: violet; }
     .upper { display: inline-block; -webkit-transform: rotate(25deg)}
+    .kern_AT {color:yellow;}
 	</style>
   <script src="ender.min.js"></script>
   <script>
@@ -176,6 +177,26 @@ function(item, i) {
 				<div id="demo7" class="demo">
 					<h1>WOOOoo!</h1>
 				</div>
+          <script>
+                $.domReady(function() {
+                      $("#demo8 h1").littering('chars',function(item,i,items){
+                              var str = i > 0 && items[i-1] == "A" && item == "T" ? " kern_AT" : "";
+                                      return '<span class="'+str+'">'+item+'</span>';
+                                            });
+                                                });
+                                                  </script>
+                                                          <h2>Context Sensitive</h2>
+                                                                  <p>Kerning (<a href="https://github.com/cjc/littering/issues/1">suggested by @gka</a>). Apply a class to any A before a T.</p>
+                                                                  <code><pre>
+    $("#demo8 h1").littering('chars',function(item,i,items){
+      var str = i > 0 && items[i-1] == "A" && item == "T" ? " kern_AT" : "";
+      return '<span class="'+str+'">'+item+'</span>';
+    });
+  </pre></code>
+                                                                        <h4>The Result</h4>
+                                                                                <div id="demo8" class="demo">
+                                                                                            <h1>RATTA TAT TAT</h1>
+                                                                                                    </div>
 			</section>
     </article>
     
